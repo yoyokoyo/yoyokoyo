@@ -1,22 +1,22 @@
 import subprocess
 from flask import Flask,render_template
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 def det_actual_time():
-        file_actual_time=open("actual_time.txt", "r")
+        file_actual_time=open("/var/www/yoyokoyo/actual_time.txt", "r")
         for line in file_actual_time:
                 actual_time = line[0:-8]
         return actual_time
 
 def listing_of_cve():
-        file_cve=open("lines_of_cve.txt", "r")
+        file_cve=open("/var/www/yoyokoyo/lines_of_cve.txt", "r")
         list_of_cve=[]
         for line in file_cve:
                 list_of_cve.append(line)
         return list_of_cve
 
 def listing_of_dates():
-        file_dates=open("lines_of_dates.txt", "r")
+        file_dates=open("/var/www/yoyokoyo/lines_of_dates.txt", "r")
         list_of_dates=[]
         for line in file_dates:
                 list_of_dates.append(line)
@@ -29,7 +29,7 @@ def listing_of_dates():
 
 
 def listing_of_desc():
-        file_desc=open("lines_of_desc.txt", "r")
+        file_desc=open("/var/www/yoyokoyo/lines_of_desc.txt", "r")
         list_of_desc=[]
         for line in file_desc:
                 list_of_desc.append(line)
@@ -59,13 +59,17 @@ def find_the_right_desc():
 
 
 
+list_of_actual_cve = find_the_right_cve()
+list_of_actual_desc = find_the_right_desc()
+length_list=len(list_of_actual_cve)
+
 
 @app.route("/")
 def hello():
         return render_template('home.html',list_of_actual_cve=list_of_actual_cve,list_of_actual_desc=list_of_actual_desc,length_list=length_list)
 
 if __name__ == "__main__":
-    list_of_actual_cve = find_the_right_cve()
-    list_of_actual_desc = find_the_right_desc()
-    length_list=len(list_of_actual_cve)
+#    list_of_actual_cve = find_the_right_cve()
+#    list_of_actual_desc = find_the_right_desc()
+#    length_list=len(list_of_actual_cve)
     app.run()
