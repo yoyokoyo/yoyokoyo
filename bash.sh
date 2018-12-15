@@ -15,6 +15,7 @@ jq -r '.CVE_Items[].publishedDate' nvdcve-1.0-recent.json > lines_of_dates.txt
 
 jq -r '.CVE_Items[].cve.description.description_data[].value' nvdcve-1.0-recent.json > lines_of_desc.txt
 
+/etc/init.d/apache2 reload
 
 sleep 600
 done
