@@ -19,3 +19,5 @@ jq -r '.CVE_Items[].cve.description.description_data[].value' nvdcve-1.0-recent.
 
 sleep 600
 done
+
+
