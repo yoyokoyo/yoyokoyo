@@ -57,8 +57,7 @@ def find_the_right_desc():
         	list_of_actual_desc.append(list_of_desc[k])
         return list_of_actual_desc
 
-
-
+actual_time = det_actual_time()
 list_of_actual_cve = find_the_right_cve()
 list_of_actual_desc = find_the_right_desc()
 length_list=len(list_of_actual_cve)
@@ -66,10 +65,7 @@ length_list=len(list_of_actual_cve)
 
 @app.route("/")
 def hello():
-        return render_template('home.html',list_of_actual_cve=list_of_actual_cve,list_of_actual_desc=list_of_actual_desc,length_list=length_list)
+        return render_template('home.html',list_of_actual_cve=list_of_actual_cve,list_of_actual_desc=list_of_actual_desc,length_list=length_list,actual_time=actual_time)
 
 if __name__ == "__main__":
-#    list_of_actual_cve = find_the_right_cve()
-#    list_of_actual_desc = find_the_right_desc()
-#    length_list=len(list_of_actual_cve)
     app.run()
