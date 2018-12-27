@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
  <title>Latest CVEs</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +13,7 @@
 <body>
 
 
-<center><h1>This Website displays the most recent CVEs (and lastly modified)</h1></center>
+<center><h1>This Website displays today's({{ actual_time }}) CVEs and lastly modified ones</h1></center>
 <center><img src="/static/wings.png" style="width:100px;height:160px;"></center>
 <br/>
         {% for k in range(length_list):%}
@@ -24,6 +23,6 @@
 
 <br/>
 <br/>
-
+	<footer><center><small>Contact : yoyokoyo.contact@gmail.com</small></center></footer>
 </body>
 </html>
