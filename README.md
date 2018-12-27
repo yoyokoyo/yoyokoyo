@@ -1,2 +1,2 @@
 # yoyokoyo
-This repository contains the source code of the website yoyokoyo.com
+This repository contains the source code of a website that displays the latest CVEs.
